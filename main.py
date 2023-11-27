@@ -7,7 +7,9 @@ pipeline = joblib.load('./model/rf_pl.joblib')
 encoder = joblib.load('./model/label_encoder.joblib')
 
 
-app = FastAPI()
+app = FastAPI(
+    title="Sepsis Analysis API"
+)
 
 class SepsisFeatures(BaseModel):
     PRG: int
@@ -22,11 +24,13 @@ class SepsisFeatures(BaseModel):
 
 @app.get('/')
 def home():
-    return "Hello world"
+   return "Sepsis Anaysis"
+
+
 
 @app.get('/info')
 def appinfo():
-    return 'This is the info page of this app'
+    return 'Sepsis Analysis API: This is my interface'
  
  
 # Define the prediction endpoint
