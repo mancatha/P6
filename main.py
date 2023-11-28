@@ -27,7 +27,6 @@ def home():
    return "Sepsis Anaysis"
 
 
-
 @app.get('/info')
 def appinfo():
     return 'Sepsis Analysis API: This is my interface'
@@ -53,4 +52,3 @@ def predict_sepsis(sepsis_features: SepsisFeatures):
 
 
     
-#return response
