@@ -1,10 +1,12 @@
 from fastapi import FastAPI, Form, Query
-from fastapi.responses import HTMLResponse
 import joblib
 from pydantic import BaseModel
 import pandas as pd
-from typing import Set
- 
+import warnings
+from sklearn.exceptions import DataConversionWarning
+
+ # Suppress DataConversionWarning
+warnings.filterwarnings("ignore", category=DataConversionWarning)
 
 pipeline = joblib.load('./model/rf_pl.joblib')
 pipeline_1 = joblib.load('./model/xgb_pl.joblib')
